@@ -27,4 +27,11 @@ public class HelpCommand extends Command {
     public CommandResult execute() {
         return new CommandResult(MESSAGE_ALL_USAGES);
     }
+    
+    /*
+     * returns whether Command will make changes into the addressbook
+     */
+    public boolean isMutating() {
+    	return false;
+    }
 }

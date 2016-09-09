@@ -16,5 +16,12 @@ public class IncorrectCommand extends Command{
     public CommandResult execute() {
         return new CommandResult(feedbackToUser);
     }
+    
+    /*
+     * returns whether Command will make changes into the addressbook
+     */
+    public boolean isMutating() {
+    	return false;
+    }
 
 }

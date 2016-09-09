@@ -65,4 +65,10 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+    /*
+     * returns whether Command will make changes into the addressbook
+     * (non-Javadoc)
+     * @see seedu.addressbook.commands.Command#isMutating()
+     */
+    public abstract boolean isMutating();
 }

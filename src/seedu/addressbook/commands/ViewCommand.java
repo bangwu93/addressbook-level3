@@ -37,5 +37,12 @@ public class ViewCommand extends Command {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
     }
+    
+    /*
+     * returns whether Command will make changes into the addressbook
+     */
+    public boolean isMutating() {
+    	return false;
+    }
 
 }

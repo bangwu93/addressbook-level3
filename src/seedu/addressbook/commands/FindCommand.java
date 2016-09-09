@@ -52,5 +52,12 @@ public class FindCommand extends Command {
         }
         return matchedPersons;
     }
+    
+    /*
+     * returns whether Command will make changes into the addressbook
+     */
+    public boolean isMutating() {
+    	return false;
+    }
 
 }

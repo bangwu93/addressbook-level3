@@ -58,13 +58,22 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public CommandResult execute() {
-        try {
+    public CommandResult execute() throws IllegalValueException{
+        if (toAdd == null) {
+        	throw new IllegalValueException(null);
+        }
+    	
+    	try {
             addressBook.addPerson(toAdd);
             return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
         } catch (UniquePersonList.DuplicatePersonException dpe) {
             return new CommandResult(MESSAGE_DUPLICATE_PERSON);
         }
     }
-
+    /*
+     * returns whether Command will make changes into the addressbook
+     */
+    public boolean isMutating() {
+    	return true;
+    }
 }
