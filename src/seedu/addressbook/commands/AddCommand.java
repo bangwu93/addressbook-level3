@@ -56,9 +56,14 @@ public class AddCommand extends Command {
     public ReadOnlyPerson getPerson() {
         return toAdd;
     }
+    /**
+     *  Executes the command to add person based on data captured in toAdd object.
+     *  If toAdd Person already has a duplicate, then there will not be any new person added. DuplicatePersonException)
+     *  @throws IllegalValueException when there is no input to be added, to stop operation.
+     */
 
     @Override
-    public CommandResult execute() throws IllegalValueException{
+    public CommandResult execute() throws IllegalValueException {
         if (toAdd == null) {
         	throw new IllegalValueException(null);
         }
@@ -70,10 +75,12 @@ public class AddCommand extends Command {
             return new CommandResult(MESSAGE_DUPLICATE_PERSON);
         }
     }
-    /*
-     * returns whether Command will make changes into the addressbook
+    /**
+     *  @returns boolean of whether Command is able to make changes onto AddressBook's Storage.
+     *  Returns true unless when Person input is a duplicate. (DuplicatePersonException)
      */
     public boolean isMutating() {
+    	//how should I input a case of if(UniquePersonList.DuplicatePersonException dpe) return false?
     	return true;
     }
 }

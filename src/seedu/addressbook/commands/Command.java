@@ -2,6 +2,7 @@ package seedu.addressbook.commands;
 
 import seedu.addressbook.common.Messages;
 import seedu.addressbook.data.AddressBook;
+import seedu.addressbook.data.exception.IllegalValueException;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.List;
@@ -38,8 +39,9 @@ public abstract class Command {
 
     /**
      * Executes the command and returns the result.
+     * @throws IllegalValueException depending on input.
      */
-    public abstract CommandResult execute();
+    public abstract CommandResult execute() throws IllegalValueException;
 
     /**
      * Supplies the data the command will operate on.
@@ -65,10 +67,11 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
-    /*
-     * returns whether Command will make changes into the addressbook
-     * (non-Javadoc)
-     * @see seedu.addressbook.commands.Command#isMutating()
+    /** 
+     *  @returns boolean of whether Command is able to make changes onto AddressBook's Storage.
+     *  Boolean returned depends on response to any Exceptions caught.
+     *  (non-Javadoc)
+     *  @see seedu.addressbook.commands.Command#isMutating()
      */
     public abstract boolean isMutating();
 }
